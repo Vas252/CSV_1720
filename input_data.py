@@ -31,7 +31,7 @@ def read_file_name_source():
     print('Введите имя файла исходника в формате CS009_2.txt')
     # file_name_source = input()
     # Необходимо написать проверку существования файла
-    file_name_source = 'CS009_2.txt'
+    file_name_source = '07092023'
     return file_name_source
 
 
@@ -40,7 +40,7 @@ def read_file_name_receiver():
     print('Введите имя файла результата поиска данных в формате CS009_21.txt')
     # Файл будет создан или перезаписан, проверка не требуется
     # file_name_receiver = input()
-    file_name_receiver = 'CS009_21.txt'
+    file_name_receiver = 'CS0081_21.txt'
     return file_name_receiver
 
 
@@ -48,7 +48,7 @@ def put_date_time_run():
     # Запросим у пользователя время начала для файла
     print('Введите дату/время начала в формате ДД.ММ.ГГ чч:мм:сс')
     # date_time_run = input()
-    date_time_run = '23.08.2023 10:20:21'
+    date_time_run = '06.09.2023 11:56:00'
     return date_time_run
 
 
@@ -56,5 +56,13 @@ def put_date_time_end():
     # Запросим у пользователя время конца для файла
     print('Введите дату/время конца файла в формате ДД.ММ.ГГ чч:мм:сс')
     # date_time_end = input()
-    date_time_end = '23.08.2023 14:25:27'
+    date_time_end = '06.09.2023 12:18:00'
     return date_time_end
+
+
+def put_kks():
+    # Запросим KKS датчика оборотов
+    print('Введите KKS ДОС из файла НИКИЭТ в формате F_10JEB10CS008')
+    # kks = input()
+    kks = "F_10JEB10CS008"
+    return kks

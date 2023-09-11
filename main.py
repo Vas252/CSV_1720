@@ -5,6 +5,7 @@ import time
 
 def main():
     """Основная программа."""
+    kks = input_data.put_kks()
     start_time = time.time()
     file_dir = input_data.read_dir()
     file_source = input_data.read_file_name_source()
@@ -14,7 +15,7 @@ def main():
     file_source_normal = file_receiver
     file_receiver_normal = file_receiver[
         0:len(file_receiver)-4] + '7' + '.txt'
-    read_csv_file.create_parse_file(file_dir, file_source, file_receiver)
+    read_csv_file.create_parse_file(file_dir, file_source, file_receiver, kks)
     data_source_file = read_csv_file.create_normal_file(
         file_source_normal, file_receiver_normal,
         date_time_run, date_time_end, file_dir
