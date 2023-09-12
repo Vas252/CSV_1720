@@ -29,7 +29,8 @@ def get_data_from_file(
             # Просто вытащим из файла дату и время без преобразований
             if flag_record == 1:
                 if fag_file == 0:
-                    date_time_event = date_time_event_test[0:10] + ' ' + date_time_event_test[11:19]
+                    date_time_event = (date_time_event_test[0:10]
+                                       + ' ' + date_time_event_test[11:19])
                     if float(data_event_test) < 10:
                         data_event = 0
                     else:
@@ -37,14 +38,18 @@ def get_data_from_file(
                     result_temp_str = (result_temp_str + date_time_event
                                        + '\t' + str(data_event) + '\n')
                 elif fag_file == 1:
-                    date_time_event = datetime.datetime.strptime(
-                        test[0:19], '%d.%m.%Y %H:%M:%S')
+                    # Пока уберем данное преобразование в формат datetime
+                    # date_time_event = datetime.datetime.strptime(
+                    #     test[0:19], '%d.%m.%Y %H:%M:%S')
+                    date_time_event = test[0:19]
                     data_event = float(test[20:len(test) - 1])
-                    result_temp_str = (result_temp_str + str(date_time_event)
+                    result_temp_str = (result_temp_str + date_time_event
                                        + '\t' + str(data_event) + '\n')
             else:
                 result_temp_str = (
-                        result_temp_str + str(time_start_date)
+                        result_temp_str
+                        + datetime.datetime.strftime(
+                            time_start_date, '%d.%m.%Y %H:%M:%S')
                         + '\t' + '0.0000' + '\n')
                 time_start_date = (time_start_date
                                    + datetime.timedelta(seconds=1))
@@ -219,31 +224,3 @@ def create_normal_file(
     finally:
         f.close()
     return result
-
-
-"""
-def main():
-    file_dir = input_data.read_dir()
-    file_source = input_data.read_file_name_source()
-    file_receiver = input_data.read_file_name_receiver()
-    date_time_run = input_data.put_date_time_run()
-    date_time_end = input_data.put_date_time_end()
-    file_source_normal = file_receiver
-    file_receiver_normal = file_receiver[0:len(file_receiver)-4] + '7' + '.txt'
-    create_parse_file(file_dir, file_source, file_receiver)
-    data_source_file = create_normal_file(
-        file_source_normal, file_receiver_normal,
-        date_time_run, date_time_end, file_dir
-        )
-    file_way = f'{file_dir}\\{file_receiver_normal}'
-    print(file_way)
-    f = open(file_way, 'w')
-    try:
-        f.write(data_source_file)
-    finally:
-        f.close()
-
-
-if __name__ == '__main__':
-    main()
-"""
