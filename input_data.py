@@ -27,7 +27,7 @@ def read_dir():
 
 
 def read_file_name_source():
-    # Запросим у пользователя имя файла
+    """Запросим у пользователя имя файла."""
     print('Введите имя файла исходника в формате CS009_2.txt')
     file_name_source = input()
     # Необходимо написать проверку существования файла
@@ -64,7 +64,7 @@ def put_date_time_end():
 
 def put_kks():
     # Запросим KKS датчика оборотов
-    print('Введите KKS ДОС из файла НИКИЭТ в формате F_10JEB10CS008')
+    print('Введите KKS ДОС из файла НИКИЭТ в формате R_10JEB10CS008')
     kks = input()
-    # kks = "F_10JEB10CS008"
+    # kks = "R_10JEB10CS008"
     return kks
